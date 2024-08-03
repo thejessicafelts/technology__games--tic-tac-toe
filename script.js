@@ -2,8 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const board = document.getElementById('board');
     const cells = document.querySelectorAll('.cell');
     const restartButton = document.getElementById('restart');
+    const clearScoresButton = document.getElementById('clear-scores');
+    const scoresContainer = document.getElementById('scores');
     let currentPlayer = 'X';
     let boardState = ['', '', '', '', '', '', '', '', ''];
+    let gameCount = 0;
 
     const winningCombinations = [
         [0, 1, 2],
@@ -24,11 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (checkWinner()) {
                 setTimeout(() => {
                     alert(`${currentPlayer} wins!`);
+                    updateScores(`${currentPlayer} Wins!`);
                     restartGame();
                 }, 100);
             } else if (boardState.every(cell => cell !== '')) {
                 setTimeout(() => {
                     alert('Draw!');
+                    updateScores('Draw!');
                     restartGame();
                 }, 100);
             } else {
@@ -45,6 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    const updateScores = (result) => {
+        gameCount++;
+        const scoreItem = document.createElement('div');
+        scoreItem.textContent = `Game ${gameCount}: ${result}`;
+        scoresContainer.prepend(scoreItem);
+    };
+
     const restartGame = () => {
         boardState = ['', '', '', '', '', '', '', '', ''];
         currentPlayer = 'X';
@@ -53,9 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    const clearScores = () => {
+        scoresContainer.innerHTML = '';
+        gameCount = 0;
+    };
+
     cells.forEach(cell => {
         cell.addEventListener('click', handleClick);
     });
 
     restartButton.addEventListener('click', restartGame);
+    clearScoresButton.addEventListener('click', clearScores);
 });

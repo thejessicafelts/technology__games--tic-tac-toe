@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -12,12 +16,28 @@ body {
     text-align: center;
 }
 
+h1 {
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     gap: 5px;
-    margin: 20px auto;
+    margin: 20px 0;
 }
 
 .cell {
@@ -33,8 +53,25 @@ body {
     user-select: none;
 }
 
+.sidebar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.sidebar {
+    width: 310px;
+    min-height: 310px;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
 button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 20px;
 }
