@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartButton = document.getElementById('restart');
     const clearScoresButton = document.getElementById('clear-scores');
     const scoresContainer = document.getElementById('scores');
+    const howToPlayButton = document.getElementById('how-to-play');
+    const modal = document.getElementById('modal');
+    const closeButton = document.querySelector('.close-button');
     let currentPlayer = 'X';
     let boardState = ['', '', '', '', '', '', '', '', ''];
     let gameCount = 0;
@@ -18,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
         [0, 4, 8],
         [2, 4, 6]
     ];
+
+    // Display the modal on page load or refresh
+    modal.style.display = 'flex';
 
     const handleClick = (e) => {
         const index = e.target.getAttribute('data-index');
@@ -70,10 +76,26 @@ document.addEventListener('DOMContentLoaded', () => {
         gameCount = 0;
     };
 
+    const openModal = () => {
+        modal.style.display = 'flex';
+    };
+
+    const closeModal = () => {
+        modal.style.display = 'none';
+    };
+
     cells.forEach(cell => {
         cell.addEventListener('click', handleClick);
     });
 
     restartButton.addEventListener('click', restartGame);
     clearScoresButton.addEventListener('click', clearScores);
+    howToPlayButton.addEventListener('click', openModal);
+    closeButton.addEventListener('click', closeModal);
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
 });
