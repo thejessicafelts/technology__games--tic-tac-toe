@@ -9,6 +9,7 @@
 <body>
     <div class="container">
         <h1>Tic Tac Toe</h1>
+        <button id="how-to-play">How to Play</button>
         <div class="content">
             <div class="game-wrapper">
                 <div class="board" id="board">
@@ -33,6 +34,20 @@
             </div>
         </div>
     </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>How to Play</h2>
+            <p>Click on any cell in the 3x3 grid to place your mark (X or O).</p>
+            <p>Players take turns until one player gets three marks in a row (horizontal, vertical, or diagonal) or all cells are filled (resulting in a draw).</p>
+            <p>When a player wins or a draw occurs, an alert will be displayed, and the game will reset for a new round.</p>
+            <p>To manually restart the game, click the "Restart Game" button.</p>
+            <p>The sidebar shows the results of each game. The most recent game score is displayed at the top of the scores list.</p>
+            <p>To clear all scores, click the "Clear Scores" button located below the sidebar.</p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
