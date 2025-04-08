@@ -1,7 +1,3 @@
-Sure, here's an updated `README.md` file to reflect the latest changes and the current state of the game:
-
-### README.md
-
 # Tic Tac Toe Game
 
 ## Description
